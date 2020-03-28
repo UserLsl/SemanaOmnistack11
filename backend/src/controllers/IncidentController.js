@@ -1,7 +1,8 @@
+//Importando a conexão com o banco
 const connection = require('../database/connection');
 
 module.exports = {
-
+    //Procedimento de criação
     async create(request, response){
         const {title, description, value} = request.body;
         const ong_id = request.headers.authorization;
@@ -17,6 +18,7 @@ module.exports = {
         return response.json({id});
     },
 
+    //Procedimento de visualização todos
     async index(request, response){
         const {page = 1} = request.query;
 
@@ -40,6 +42,7 @@ module.exports = {
         return response.json(incidents);
     },
 
+    //Procedimento de visualização expecifica
     async show(request, response){
         const ong_id = request.headers.authorization;
 
@@ -50,6 +53,7 @@ module.exports = {
         return response.json(incidents);
     },
 
+    //Procedimento de exclusão
     async delete(request, response){
         const{id} = request.params;
         const ong_id = request.headers.authorization;

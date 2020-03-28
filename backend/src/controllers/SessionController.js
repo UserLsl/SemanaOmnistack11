@@ -1,6 +1,8 @@
+//Importando a conexão com o banco
 const connection = require('../database/connection');
 
 module.exports = {
+    //Procedimento de criação
     async create(request, response){
         const {id} = request.body;
 
